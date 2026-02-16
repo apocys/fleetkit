@@ -45,9 +45,35 @@ cp -r fleetkit/ ~/.openclaw/workspace/fleetkit/
 
 **That's it.** No code. No Docker. No dependencies. Just files.
 
-Your AI executives will debate for 3 rounds and deliver a synthesis with consensus, tensions, and a recommendation — in under 5 minutes, for about $1.
+Your AI executives will debate for 3 rounds and deliver a synthesis with consensus, tensions, and a recommendation — in under 5 minutes.
 
 👉 **[Full setup guide →](QUICKSTART.md)**
+
+---
+
+## See What Happens
+
+You ask: *"Should we price our SaaS at $29/mo or $99/mo?"*
+
+> **💰 Hunter (CRO):** "$99. Period. Your current users already pay — they'll absorb the increase. $29 attracts tire-kickers who churn in month 2."
+>
+> **🔧 Forge (CTO):** "Hunter's ignoring infrastructure costs. At $29 we need 3x the users but our backend doesn't scale linearly. I'm with him on $99 — but for engineering reasons, not sales reasons."
+>
+> **📢 Echo (CMO):** "You're both wrong. $99 kills virality. Nobody screenshots a $99 invoice. $29/mo with a $299/year annual plan. The annual plan is the real product."
+>
+> **📊 Atlas (COO) — Synthesis:** "Consensus: not $29/mo. Tension: monthly vs annual. Recommendation: Launch at $99/mo with $499/year annual (58% savings). Test for 60 days, measure conversion. Echo runs a $29 experiment on a separate landing page."
+
+**That argument took 4 minutes and cost $0.20.** Your last meeting about pricing took 2 hours and decided nothing.
+
+---
+
+## Before FleetKit vs After FleetKit
+
+**BEFORE:** Tuesday's 3-hour meeting. Hunter wants to move fast. Sarah wants more data. Mike thinks it cheapens the brand. Nothing decided. Meeting rescheduled for Thursday.
+
+**AFTER:** You ask FleetKit the same question. 5 minutes: four perspectives, genuine disagreement, a synthesis with specific next steps. Decision made. Tuesday afternoon freed up.
+
+*This is what happens when your team argues efficiently.*
 
 ---
 
@@ -55,12 +81,12 @@ Your AI executives will debate for 3 rounds and deliver a synthesis with consens
 
 FleetKit is an **open-source starter kit** for running multi-agent AI teams on [OpenClaw](https://openclaw.com).
 
-It gives you:
+Meet your AI C-suite. They argue about everything. That's the point:
 
-- **5 AI executives** with distinct personalities, expertise areas, and decision frameworks
-- **Structured workflows** for brainstorms, standups, and decision escalation
-- **Battle-tested protocols** that produce genuine disagreement and real strategic insight
-- **A dashboard** to see your fleet's activity at a glance
+- **5 AI executives** with distinct personalities that genuinely disagree
+- **Workflows** for brainstorms, standups, and decision escalation
+- **Protocols** that produce real insight, not AI slop
+- **A dashboard** to see your fleet's activity
 
 ### What FleetKit is NOT
 
