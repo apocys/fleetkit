@@ -1,203 +1,182 @@
-<!-- 
-  GitHub Topics (add via repo settings):
-  ai-agents, multi-agent, llm, claude, openai, automation, no-code, 
-  executive-team, brainstorm, ai-workflow, openclaw, prompt-engineering,
-  soul-files, agent-framework, strategic-planning
--->
+<p align="center">
+  <img src="https://img.shields.io/badge/agents-5-blue" alt="5 Agents">
+  <img src="https://img.shields.io/badge/setup-5_minutes-green" alt="5 Min Setup">
+  <img src="https://img.shields.io/badge/code_required-zero-orange" alt="Zero Code">
+  <img src="https://img.shields.io/badge/license-MIT-lightgrey" alt="MIT License">
+</p>
+
+<h1 align="center">⚡ FleetKit</h1>
 
 <p align="center">
-<pre align="center">
-    ███████╗██╗     ███████╗███████╗████████╗██╗  ██╗██╗████████╗
-    ██╔════╝██║     ██╔════╝██╔════╝╚══██╔══╝██║ ██╔╝██║╚══██╔══╝
-    █████╗  ██║     █████╗  █████╗     ██║   █████╔╝ ██║   ██║   
-    ██╔══╝  ██║     ██╔══╝  ██╔══╝     ██║   ██╔═██╗ ██║   ██║   
-    ██║     ███████╗███████╗███████╗   ██║   ██║  ██╗██║   ██║   
-    ╚═╝     ╚══════╝╚══════╝╚══════╝   ╚═╝   ╚═╝  ╚═╝╚═╝   ╚═╝   
-                 ⚡ AI Executive Team in a Box
-</pre>
+  <strong>Get the strategic insight of a $2M executive team — for $1 per decision.<br>Your AI C-suite debates so you don't make $100K mistakes alone.</strong>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/agents-5-blue?style=flat-square" alt="5 Agents">
-  <img src="https://img.shields.io/badge/setup-5_min-green?style=flat-square" alt="5 Min Setup">
-  <img src="https://img.shields.io/badge/code-zero-orange?style=flat-square" alt="Zero Code">
-  <img src="https://img.shields.io/badge/cost-%241%2Fbrainstorm-yellow?style=flat-square" alt="$1/brainstorm">
-  <img src="https://img.shields.io/badge/license-MIT-lightgrey?style=flat-square" alt="MIT License">
+  <a href="#quick-start">Quick Start</a> •
+  <a href="#what-is-fleetkit">What Is It</a> •
+  <a href="#see-it-in-action">Demo</a> •
+  <a href="#features">Features</a> •
+  <a href="#how-it-compares">Compare</a> •
+  <a href="#premium-soul-packs">Premium</a>
 </p>
 
+---
+
+<!-- Replace with actual screenshot/GIF of a brainstorm in action -->
 <p align="center">
-  <strong>5 AI executives. Brainstorms, standups, debates.<br>Zero code, 5-minute setup, ~$1 per session.</strong>
+  <img src="https://via.placeholder.com/800x400/0a0a0a/e8e8ed?text=FleetKit+Dashboard+%E2%80%94+Your+AI+Executive+Team" alt="FleetKit Dashboard" width="800">
 </p>
 
-<p align="center">
-  <a href="#-quick-start">Quick Start</a> •
-  <a href="#-what-happens-when-you-run-a-brainstorm">See It Work</a> •
-  <a href="#-the-team">Meet the Team</a> •
-  <a href="#-how-it-compares">Compare</a> •
-  <a href="#-premium-soul-packs">Premium Packs</a>
-</p>
+---
+
+## Quick Start
+
+```bash
+# 1. Clone FleetKit
+git clone https://github.com/your-org/fleetkit.git
+
+# 2. Copy to your OpenClaw workspace
+cp -r fleetkit/ ~/.openclaw/workspace/fleetkit/
+
+# 3. Run your first brainstorm
+# Tell your OpenClaw agent:
+# "Run a brainstorm using FleetKit. Topic: Should we go freemium or stay premium?"
+```
+
+**That's it.** No code. No Docker. No dependencies. Just files.
+
+Your AI executives will debate for 3 rounds and deliver a synthesis with consensus, tensions, and a recommendation — in under 5 minutes, for about $1.
+
+👉 **[Full setup guide →](QUICKSTART.md)**
 
 ---
 
 ## What Is FleetKit?
 
-FleetKit is an **open-source starter kit** for running multi-agent AI executive teams on [OpenClaw](https://openclaw.com).
+FleetKit is an **open-source starter kit** for running multi-agent AI teams on [OpenClaw](https://openclaw.com).
 
-Drop it in your workspace. Tell your AI to brainstorm a topic. Get a structured 3-round debate with genuine disagreement, real strategic insight, and a synthesized recommendation — in under 5 minutes.
+It gives you:
 
-**Not a framework.** Not a library. Not a coding project. Just text files — SOUL.md personalities, workflow protocols, and YAML config. Fork it, edit it, make it yours.
+- **5 AI executives** with distinct personalities, expertise areas, and decision frameworks
+- **Structured workflows** for brainstorms, standups, and decision escalation
+- **Battle-tested protocols** that produce genuine disagreement and real strategic insight
+- **A dashboard** to see your fleet's activity at a glance
 
----
+### What FleetKit is NOT
 
-## 🚀 Quick Start
-
-```bash
-# 1. Clone
-git clone https://github.com/apocys/fleetkit.git
-
-# 2. Copy to your OpenClaw workspace
-cp -r fleetkit/ ~/.openclaw/workspace/fleetkit/
-
-# 3. Tell your agent:
-"Run a brainstorm using FleetKit. Topic: Should we go freemium or stay premium?"
-```
-
-**That's it.** No Docker. No pip install. No dependencies. Just files.
-
-👉 **[Full 5-minute setup guide →](QUICKSTART.md)**
+- ❌ Not a framework — it's a template. Fork it, edit it, make it yours.
+- ❌ Not autonomous agents — your AI executives advise, YOU decide.
+- ❌ Not a coding project — everything is configured through SOUL.md files and YAML.
+- ❌ Not magic — it's structured prompting done right. The magic is in the personalities.
 
 ---
 
-## 🧠 What Happens When You Run a Brainstorm
+## The Team
 
-You type one sentence. FleetKit runs a **3-round structured debate** with your AI executive team. Here's what that actually looks like:
-
-### Round 1 — Opening Positions
-
-Each executive argues their corner. No diplomacy, no balance — just raw perspective.
-
-> **💰 Hunter (CRO):**
-> Digital product packs — fastest path to $10K/mo. Developer market pays premium. Revenue by week 4. $5-15K/mo potential. *Focus everything here.*
->
-> **🔧 Forge (CTO):**
-> 3 days to working MVP. Simplest technically. Existing competitors have terrible UX — that's our gap. Ship the mobile app this week. Test with real users. Scale what works.
->
-> **📢 Echo (CMO):**
-> *This is our iPhone moment.* Every customer becomes an influencer. 9/10 viral potential. A transformation story beats a utility story every time.
-
-### Round 2 — Debate & Challenge
-
-The executives read each other's positions. Then they **fight**.
-
-> **💰 Hunter → Forge:**
-> "Ship a mobile app in 3 days" — technically impressive, totally irrelevant. Speed to build ≠ speed to revenue. Where are the first 100 paying users coming from?
->
-> **🔧 Forge → Hunter:**
-> "Revenue by week 4" is aggressive bordering on delusional. Product → landing page → traffic → conversion → payment. That's 4 things that all need to work simultaneously.
->
-> **🔧 Forge → Echo:**
-> "iPhone moment" is inspiring and zero percent actionable. Convert the vision into a spec and I'll build it in a week. Until then, it's poetry.
->
-> **📢 Echo → Forge:**
-> Don't pretend engineering precedes positioning. If we can't explain WHY someone should buy this in one sentence, no amount of technical excellence saves us.
-
-### Round 3 — Synthesis
-
-The COO reads everything and delivers a structured executive brief.
-
-> **📊 Atlas (COO) — Executive Brief:**
->
-> **Consensus:** Kill the SaaS idea (unanimous). Digital packs have the highest ceiling.
->
-> **Key Tensions:**
-> | Question | CRO | CTO | CMO |
-> |---|---|---|---|
-> | What ships first? | Packs + store | MVP packs only | Packs + community |
-> | Launch strategy? | Paid ads | Just ship it | Big moment campaign |
-> | Timeline to revenue? | Week 4 | Week 6-8 | Month 2 (but bigger) |
->
-> **Recommendation:** Ship 5 packs in 2 weeks, launch on Product Hunt week 3. Revenue target: 150-350 sales/month = $4K-$25K.
->
-> **CEO Decisions Needed:**
-> 1. Which 5 packs ship in v1?
-> 2. $29 entry / $79 premium, or different structure?
-> 3. Product Hunt first, or soft-launch to validate?
-
-**Total time:** ~4 minutes. **Total cost:** ~$1.
-
-📄 **[See the full unedited output →](examples/brainstorm-example.md)**
-
----
-
-## 👥 The Team
-
-| | Agent | Role | Perspective | Catchphrase |
-|---|-------|------|-------------|-------------|
-| 👑 | **Chief** | CEO | Vision, long-term, decisive | *"Does this still matter in 5 years?"* |
-| 📊 | **Atlas** | COO | Process, documentation, synthesis | *"Has this been documented?"* |
-| 💰 | **Hunter** | CRO | Revenue, speed, market timing | *"What's the revenue impact?"* |
-| 🔧 | **Forge** | CTO | First principles, optimization, dry humor | *"Delete it. If nobody notices, it wasn't needed."* |
-| 📢 | **Echo** | CMO | Story, emotion, brand, provocation | *"Nobody cares about features. What's the feeling?"* |
+| Agent | Role | Personality | Catchphrase |
+|-------|------|-------------|-------------|
+| 👑 **Chief** | CEO | Decisive, vision-driven, allergic to theater | *"Does this still matter in 5 years?"* |
+| 📊 **Atlas** | COO | Meticulous, process-obsessed, evidence-first | *"Has this been documented?"* |
+| 💰 **Hunter** | CRO | Aggressive, numbers-forward, speed-obsessed | *"What's the revenue impact?"* |
+| 🔧 **Forge** | CTO | First-principles, optimization-obsessed, dry humor | *"Delete it. If nobody notices, it wasn't needed."* |
+| 📢 **Echo** | CMO | Creative, provocative, empathetic, bold | *"Nobody cares about features. What's the feeling?"* |
 
 They're designed to **disagree**. Hunter pushes for speed, Forge pushes back on technical debt. Echo wants bold branding, Atlas wants documented processes. The friction is the feature.
 
 ---
 
-## ⚡ Features
+## See It In Action
 
-- 🧠 **5 Distinct Personalities** — Deep SOUL.md files with unique decision frameworks, communication styles, and blind spots
-- 🔄 **3-Round Brainstorm Protocol** — Positions → Debate → Synthesis (genuine disagreement, not theater)
-- 📋 **Daily Standups** — Automated morning briefs delivered to Telegram/Discord/Slack
-- ⚖️ **Decision Escalation** — Structured protocol when agents can't agree
-- 📊 **Fleet Dashboard** — Dark-mode HTML dashboard for agent activity at a glance
-- ⏰ **Cron Jobs** — Ready-to-use configs for standups and weekly retros
+Here's an excerpt from a real brainstorm on revenue strategy:
+
+> **💰 Hunter (CRO):** Digital product packs — fastest path to $10K/mo. Developer market pays premium. Revenue by week 4. $5-15K/mo potential. *Focus everything here.*
+>
+> **🔧 Forge (CTO):** "Revenue by week 4" is aggressive bordering on delusional. Has Hunter actually mapped the funnel? Product → landing page → traffic → conversion → payment. That's 4 things that all need to work simultaneously.
+>
+> **📢 Echo (CMO):** *This is our iPhone moment.* Every customer becomes an influencer. 9/10 viral potential. The community becomes a self-reinforcing flywheel.
+>
+> **🔧 Forge:** "iPhone moment" is inspiring and zero percent actionable. Convert the vision into a spec and I'll build it in a week. Until then, it's poetry.
+>
+> **📊 Atlas (COO) — Synthesis:** Kill the SaaS idea (unanimous). Digital packs have the highest ceiling. Ship 5 packs in 2 weeks, launch on Product Hunt week 3. Revenue target: 150-350 sales/month = $4K-$25K.
+
+**[See the full example →](examples/brainstorm-example.md)**
+
+---
+
+## Features
+
+- 🧠 **5 Distinct Agent Personalities** — CEO, COO, CRO, CTO, CMO with unique decision frameworks
+- 🔄 **3-Round Brainstorm Protocol** — Positions → Debate → Synthesis
+- 📋 **Daily Standups** — Automated morning briefs delivered to Telegram/Discord
+- ⚖️ **Decision Escalation** — Structured protocol for when agents disagree
+- 📊 **Fleet Dashboard** — See agent activity, costs, and status at a glance
+- ⏰ **Cron Jobs** — Ready-to-use configs for automated standups and retros
 - 📝 **Memory System** — Agents build context over time through MEMORY.md files
-- 🎛️ **YAML Config** — Models, temperatures, schedules, delivery — all in one file
-- 💰 **~$1/brainstorm** — Cheaper than a coffee. Standups are ~$0.40.
-- 🔌 **Zero Dependencies** — Just text files. Works with any LLM.
+- 🎛️ **Fully Configurable** — YAML config for models, temperatures, schedules, delivery
+- 💰 **Cost Tracking** — Built-in budget alerts and per-operation cost estimates
+- 🔌 **Zero Dependencies** — Just text files. No code, no Docker, no build step.
 
 ---
 
-## 📊 How It Compares
+## How It Compares
 
-| | FleetKit | CrewAI | AutoGen | LangGraph |
-|---|---|---|---|---|
-| **Setup** | 5 min | 30+ min | 1+ hr | 2+ hr |
-| **Code required** | None | Python | Python | Python |
-| **Agent depth** | Deep SOUL files | Basic roles | Minimal | Minimal |
-| **Structured debate** | ✅ 3-round | Sequential | Chat | Graph |
-| **Cost/brainstorm** | ~$1 | ~$2-5 | ~$3-8 | ~$2-5 |
-| **Learning curve** | Read a README | Learn SDK | Learn SDK | Learn SDK |
+| Feature | FleetKit | CrewAI | AutoGen | LangGraph |
+|---------|----------|--------|---------|-----------|
+| Setup time | **5 minutes** | 30+ minutes | 1+ hours | 2+ hours |
+| Code required | **None** | Python | Python | Python |
+| Agent personality | **Deep SOUL files** | Basic roles | Minimal | Minimal |
+| Structured debate | **3-round protocol** | Sequential | Chat | Graph |
+| Decision escalation | **Built-in** | Custom code | Custom code | Custom code |
+| Daily standups | **Built-in** | Custom code | Custom code | Custom code |
+| Dashboard | **Included** | Third-party | Third-party | Third-party |
+| Cost per brainstorm | **~$1** | ~$2-5 | ~$3-8 | ~$2-5 |
+| Learning curve | **Read a README** | Learn Python SDK | Learn Python SDK | Learn Python SDK |
 
-**Philosophy**: Configuration over code. Edit a SOUL.md, don't write a Python class.
+**FleetKit's philosophy**: Configuration over code. You shouldn't need to be a programmer to run an AI team. Edit a SOUL.md file instead of writing a Python class.
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 fleetkit/
-├── fleetkit.yaml              ← Fleet configuration (models, temps, schedules)
+├── README.md                  ← You are here
+├── QUICKSTART.md              ← 5-minute setup guide
+├── LICENSE                    ← MIT
+├── fleetkit.yaml              ← Fleet configuration
+│
 ├── agents/                    ← Your AI executive team
-│   ├── ceo/SOUL.md            ← Personality & decision framework
-│   ├── coo/SOUL.md
-│   ├── cto/SOUL.md
-│   ├── cro/SOUL.md
-│   └── cmo/SOUL.md
+│   ├── ceo/
+│   │   ├── SOUL.md            ← Personality & decision framework
+│   │   ├── MEMORY.md          ← Long-term memory (grows over time)
+│   │   └── TOOLS.md           ← Tool configuration
+│   ├── coo/
+│   ├── cto/
+│   ├── cro/
+│   └── cmo/
+│
 ├── workflows/                 ← Operational protocols
 │   ├── brainstorm.md          ← 3-round debate protocol
 │   ├── standup.md             ← Daily sync format
 │   └── decision.md            ← Escalation framework
+│
 ├── cron/                      ← Automation configs
+│   ├── morning-standup.json
+│   └── weekly-retro.json
+│
 ├── dashboard/                 ← Fleet activity dashboard
+│   └── index.html
+│
 └── examples/                  ← Real output examples
+    ├── brainstorm-example.md
+    └── standup-example.md
 ```
 
 ---
 
-## 🎛️ Customization
+## Customization
 
-### Change a personality
+### Change an agent's personality
 
 Edit `agents/{role}/SOUL.md`. Every word affects behavior:
 
@@ -206,90 +185,111 @@ Edit `agents/{role}/SOUL.md`. Every word affects behavior:
 You are the CTO. You handle technical decisions.
 
 # After (FleetKit-style)
-You think in first principles. When someone says "this is how it's
-done," your first question is "why?" and your second is "what if we
-deleted that step entirely?"
+You think in first principles. When someone says "this is how
+it's done," your first question is "why?" and your second is
+"what if we deleted that step entirely?" You'd rather delete
+code than write it.
 ```
 
 ### Add a new agent
 
 ```bash
 mkdir agents/cpo  # Chief Product Officer
-# Create SOUL.md, MEMORY.md, TOOLS.md → add to fleetkit.yaml
 ```
+
+Create `SOUL.md`, `MEMORY.md`, `TOOLS.md` in the new directory. Add the agent to `fleetkit.yaml`. Done.
 
 ### Swap models
 
+In `fleetkit.yaml`, change `model` per agent. Use expensive models (Opus) for synthesis, cheap models (Haiku) for individual updates:
+
 ```yaml
-# In fleetkit.yaml — use expensive models for synthesis, cheap for updates
 agents:
   coo:
-    model: "claude-opus-4"     # Heavy reasoning
+    model: "claude-opus-4"     # Heavy reasoning for synthesis
   cro:
-    model: "claude-haiku"      # Fast and cheap
+    model: "claude-haiku"      # Fast, cheap for individual updates
 ```
 
 ---
 
-## 💎 Premium SOUL Packs
+## Premium SOUL Packs
 
-FleetKit is **free and open source** (MIT). Premium SOUL packs offer deeply crafted, battle-tested agent personalities for specific domains:
+FleetKit is **free and open source** (MIT). Use it, fork it, sell products built with it.
 
-| Pack | Agents | Price |
-|------|--------|-------|
-| 🚀 **Startup** | CEO, CTO, Head of Growth, Product Lead, Designer | $29 |
-| 🏢 **Enterprise** | CISO, VP Engineering, VP Sales, VP Product, Chief of Staff | $49 |
-| 🎨 **Creative Agency** | Creative Director, Copywriter, Strategist, Media Planner, Producer | $39 |
-| 📈 **Sales Machine** | VP Sales, SDR Lead, AE, Solutions Engineer, CS Lead | $39 |
-| ⚖️ **Legal & Compliance** | General Counsel, Compliance, IP Specialist, Privacy, Contract Reviewer | $49 |
+Want specialized, battle-tested agent personalities? **Premium SOUL packs** are available:
 
-Each pack includes SOUL.md files, domain-specific MEMORY.md templates, and adapted workflows.
+| Pack | Agents | Price | Best For |
+|------|--------|-------|----------|
+| 🚀 **Startup Founders** | CEO, CTO, Head of Growth, Product Lead, Designer | $79 | Early-stage founders making $100K decisions alone |
+| 🏢 **Enterprise Suite** | CISO, VP Engineering, VP Sales, VP Product, Chief of Staff | $149 | Corporate strategists needing diverse perspectives |
+| 🎨 **Creative Agency** | Creative Director, Copywriter, Strategist, Media Planner, Producer | $79 | Agencies and freelancers who need a team on demand |
+| 📈 **Sales Machine** | VP Sales, SDR Lead, AE, Solutions Engineer, CS Lead | $99 | Revenue teams optimizing pipeline and positioning |
+| ⚖️ **Legal & Compliance** | General Counsel, Compliance Officer, IP Specialist, Data Privacy, Contract Reviewer | $149 | Founders navigating legal decisions without $500/hr lawyers |
 
-<!-- TODO: Replace with actual store URL -->
+Each pack includes deeply crafted SOUL.md files with real decision frameworks, domain-specific MEMORY.md templates, and adapted workflow protocols.
+
+**One avoided bad hire pays for every pack. One better pricing decision pays for a year of FleetKit.**
+
 **[Browse packs →](https://fleetkit.lemonsqueezy.com)**
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
-We welcome contributions! See **[CONTRIBUTING.md](CONTRIBUTING.md)** for guidelines.
+FleetKit is community-driven. We welcome:
 
-The best contributions:
-- 🧠 New SOUL.md personalities
-- 🔄 Workflow improvements  
-- 📊 Dashboard features
-- 📝 Documentation and translations
+- 🧠 **New SOUL.md personalities** — The more diverse, the better
+- 🔄 **Workflow improvements** — Better brainstorm protocols, new workflow types
+- 📊 **Dashboard features** — Charts, filters, real-time data
+- 📝 **Documentation** — Guides, tutorials, translations
+- 🐛 **Bug reports** — Found something off? Tell us.
+
+### How to contribute
+
+1. Fork the repo
+2. Create your feature branch (`git checkout -b feature/amazing-soul`)
+3. Commit your changes (`git commit -m 'Add amazing CPO soul'`)
+4. Push to the branch (`git push origin feature/amazing-soul`)
+5. Open a Pull Request
 
 ---
 
-## ❓ FAQ
+## FAQ
 
-**Works with GPT-4/Gemini/Llama?** — Yes. Model-agnostic. Change `model` in fleetkit.yaml.
+**Q: Does this work with GPT-4/Gemini/Llama?**  
+A: Yes. FleetKit is model-agnostic. Change the `model` field in `fleetkit.yaml` to any model your OpenClaw instance supports.
 
-**How much does it cost?** — Standup: ~$0.40. Brainstorm: ~$1. Full day: ~$2-3.
+**Q: How much does it cost to run?**  
+A: With Sonnet: a brainstorm costs ~$0.15-0.25, a standup ~$0.10. With Opus: 3-4x more. A full day of fleet operations runs $0.50-2.00. If you use a flat-rate subscription (Claude Max) via a local proxy, the cost is effectively $0.
 
-**Can I add more agents?** — Yes. New directory + SOUL.md + config entry. People run fleets of 10+.
+**Q: Can I add more than 5 agents?**  
+A: Absolutely. Create a new directory in `agents/`, write a SOUL.md, and add it to the config. People run fleets of 10+.
 
-**Do agents remember things?** — Yes, through MEMORY.md. More context = sharper output.
+**Q: Do agents remember things between sessions?**  
+A: Yes, through MEMORY.md files. Populate them with context and agents get sharper over time.
+
+**Q: Can I use this for my team/company?**  
+A: Yes. MIT license. Use it however you want.
+
+---
+
+## Star History
+
+If FleetKit saves you from one bad decision, it's worth a ⭐
+
+<!-- Replace with actual star history chart -->
+<!-- [![Star History Chart](https://api.star-history.com/svg?repos=your-org/fleetkit&type=Date)](https://star-history.com/#your-org/fleetkit&Date) -->
 
 ---
 
 ## License
 
-MIT — do whatever you want. See [LICENSE](LICENSE).
-
----
-
-<!-- TODO: Replace with actual star history once repo is live -->
-<!-- [![Star History Chart](https://api.star-history.com/svg?repos=apocys/fleetkit&type=Date)](https://star-history.com/#apocys/fleetkit&Date) -->
-
-<p align="center">
-  <sub>If FleetKit saves you from one bad decision, it's worth a ⭐</sub>
-</p>
+MIT — do whatever you want with it. See [LICENSE](LICENSE).
 
 ---
 
 <p align="center">
-  <strong>Built by <a href="https://github.com/apocys">@apocys</a></strong><br>
-  <sub>Powered by <a href="https://openclaw.com">OpenClaw</a> · Your AI executives are waiting. Give them something to argue about.</sub>
+  <strong>Built with ⚡ by the OpenClaw community</strong><br>
+  <sub>Your AI executives are waiting. Give them something to argue about.</sub>
 </p>

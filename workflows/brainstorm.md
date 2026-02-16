@@ -1,6 +1,6 @@
 # Brainstorm Protocol — 3-Round Structured Debate
 
-A multi-agent brainstorm that produces genuine strategic insight through structured disagreement. Three rounds: positions → debate → synthesis.
+Multi-agent brainstorm that produces strategic insight through structured disagreement.
 
 ---
 
@@ -10,155 +10,134 @@ A multi-agent brainstorm that produces genuine strategic insight through structu
 |---|---|
 | **Participants** | CRO, CTO, CMO (+ COO as synthesizer) |
 | **Rounds** | 3 |
-| **Estimated tokens** | ~50-70K total |
-| **Estimated cost** | ~$0.80-1.50 |
+| **Estimated tokens** | ~25-35K total |
+| **Estimated cost** | ~$0.15-0.50 (model-dependent) |
 | **Output** | Synthesis doc with consensus, tensions, and recommendation |
+
+---
+
+## How to Run (OpenClaw)
+
+Tell your OpenClaw main agent:
+
+> "Run a brainstorm on: **{YOUR TOPIC}**. Use the FleetKit protocol in `fleetkit/workflows/brainstorm.md`."
+
+Or trigger it manually by spawning each agent as a sub-session. Here's the exact flow:
 
 ---
 
 ## Round 1: Opening Positions
 
-Each participant agent states their position on the topic. They should be **opinionated and specific** — this is not the round for balance.
+Spawn CRO, CTO, and CMO in parallel. Each gets their SOUL.md + the topic.
 
-### Spawn Prompt (per agent)
+### How to Spawn (OpenClaw sessions_spawn)
+
+For each agent (CRO, CTO, CMO), use OpenClaw's `sessions_spawn` tool:
 
 ```
-You are participating in a fleet brainstorm on: "{TOPIC}"
+Task: "You are {AGENT_NAME}, {TITLE}.
 
-This is Round 1 — Opening Positions.
+[Paste contents of fleetkit/agents/{agent}/SOUL.md here]
 
-Read your SOUL.md for your role and perspective. Then state your position on this topic:
+--- BRAINSTORM ---
+Topic: {YOUR_TOPIC}
 
-1. What's your take? Be specific and opinionated.
-2. What opportunities do you see from your domain?
-3. What risks or concerns does your role flag?
-4. What's your recommended course of action?
+State your position in 200-300 words:
+1. Your take (specific, opinionated)
+2. Opportunities from your domain
+3. Risks your role flags
+4. Recommended action
 
-Be direct. Be bold. Do NOT try to be balanced — that's what the synthesis round is for. Argue your corner.
+Be direct. Disagree with likely positions of other agents."
 
-Format: Use your title and emoji as header. Keep it to 300-500 words.
+Model: sonnet (or your preferred model)
+Label: brainstorm-{agent}-r1
 ```
 
-### What to expect
-
-- CRO leads with revenue impact, market timing, competitive angles
-- CTO leads with feasibility, technical cost, optimization opportunities
-- CMO leads with positioning, story, customer empathy, viral potential
-
-**Key**: Agents should disagree. If everyone agrees in Round 1, the topic might be too obvious — or the SOUL files need more personality.
+Collect all 3 responses.
 
 ---
 
 ## Round 2: Debate & Challenge
 
-Each agent reads ALL Round 1 positions, then responds to points they **disagree with**. This is where the real value emerges.
-
-### Spawn Prompt (per agent)
+Spawn the same 3 agents again, this time with Round 1 results as context.
 
 ```
-You are participating in a fleet brainstorm on: "{TOPIC}"
+Task: "You are {AGENT_NAME}, {TITLE}.
 
-This is Round 2 — Debate & Challenge.
+[SOUL.md contents]
 
-Here are the Round 1 positions from all participants:
+--- BRAINSTORM ROUND 2 ---
+Topic: {YOUR_TOPIC}
 
----
-{PASTE ALL ROUND 1 OUTPUTS HERE}
----
+Round 1 positions:
+{PASTE ALL 3 ROUND 1 RESPONSES}
 
-Now respond:
+Respond in 200-400 words:
+1. Which positions do you DISAGREE with? Name the agent, quote the point, explain why.
+2. Which do you agree with? Build on them.
+3. Has reading others changed your view? Why or why not?"
 
-1. Which positions do you DISAGREE with? Cite the specific agent and their claim.
-2. Which positions do you AGREE with? Build on them.
-3. Where are the others missing something from YOUR domain's perspective?
-4. Has anyone changed your mind on anything? If so, say what and why.
-
-Be direct. Constructive conflict produces better outcomes than polite agreement. Challenge assumptions with evidence.
-
-Format: Use your title and emoji as header. Keep it to 300-500 words.
+Model: sonnet
+Label: brainstorm-{agent}-r2
 ```
-
-### What to expect
-
-- CRO challenges CTO's timelines and CMO's non-revenue priorities
-- CTO challenges CRO's "ship now" urgency and CMO's vagueness
-- CMO challenges CRO's revenue-only thinking and CTO's "it's hard" reflexes
-- Some positions shift. Some harden. Both are valuable.
 
 ---
 
 ## Round 3: Synthesis (COO Only)
 
-The COO reads everything and produces a structured executive brief. This is the deliverable.
-
-### Spawn Prompt (COO only)
+Spawn the COO with all Round 1 + Round 2 outputs.
 
 ```
-You are synthesizing a fleet brainstorm on: "{TOPIC}"
+Task: "You are the COO.
 
-This is Round 3 — Synthesis. You are the COO. Your job: turn debate into decisions.
+[COO SOUL.md contents]
 
-Here are all positions from Round 1 and Round 2:
+--- BRAINSTORM SYNTHESIS ---
+Topic: {YOUR_TOPIC}
 
----
-{PASTE ALL ROUND 1 AND ROUND 2 OUTPUTS HERE}
----
+Round 1 positions:
+{ALL ROUND 1}
 
-Produce an executive brief with these sections:
+Round 2 debate:
+{ALL ROUND 2}
 
-## CONSENSUS
-What do all agents agree on? (Bullet points)
+Write an Executive Brief (300-500 words):
+1. Consensus — where do agents agree?
+2. Key tensions — where do they disagree, and why?
+3. Each agent's final position (one line each)
+4. Your recommendation — what should the CEO do?
+5. Decision needed — frame the specific choice."
 
-## KEY TENSIONS
-Where do agents disagree? Present as a table:
-| Question | CRO | CTO | CMO |
-
-## COO CHALLENGES
-Push back on at least one claim from each agent. Don't let weak arguments pass.
-
-## RECOMMENDATION
-Your recommended course of action. Be specific:
-- What to do (concrete steps)
-- Timeline
-- Who owns what
-- Expected outcome
-- Key risks
-
-## DECISIONS NEEDED
-What must the CEO decide? Frame as clear yes/no or A/B/C choices.
-
-Be honest about where consensus exists and where it doesn't. Don't paper over disagreements — surface them clearly for the CEO.
+Model: opus (or sonnet for budget)
+Label: brainstorm-synthesis
 ```
 
 ---
 
-## Output Structure
+## Automation via Cron
 
-Save all outputs in a brainstorm directory:
+To schedule regular brainstorms, create an OpenClaw cron job:
 
+```json
+{
+  "name": "Weekly Strategy Brainstorm",
+  "schedule": {"kind": "cron", "expr": "0 10 * * 1", "tz": "Europe/Paris"},
+  "sessionTarget": "isolated",
+  "payload": {
+    "kind": "agentTurn",
+    "message": "Run a brainstorm using the FleetKit protocol. Topic: [YOUR WEEKLY TOPIC]. Spawn CRO, CTO, CMO for Round 1-2, then COO for synthesis. Deliver results to me.",
+    "model": "claude-sonnet-4"
+  }
+}
 ```
-brainstorms/{topic-slug}/
-  round-1.md      # All Round 1 positions
-  round-2.md      # All Round 2 debates
-  synthesis.md     # COO's final brief
-```
-
----
-
-## Running a Brainstorm (Step by Step)
-
-1. **Create the directory**: `brainstorms/{topic-slug}/`
-2. **Round 1**: Spawn CRO, CTO, CMO with the Round 1 prompt. Collect outputs into `round-1.md`
-3. **Round 2**: Spawn CRO, CTO, CMO with Round 2 prompt (include Round 1 outputs). Collect into `round-2.md`
-4. **Round 3**: Spawn COO with synthesis prompt (include all outputs). Save as `synthesis.md`
-5. **Deliver**: Send synthesis to CEO via preferred channel (Telegram, Discord, etc.)
 
 ---
 
 ## Tips
 
-- **Better topics = better brainstorms**: "Should we build X?" is better than "Tell me about X"
-- **Add context**: Include market data, customer feedback, or constraints in the prompt for richer debate
-- **Vary participants**: Not every brainstorm needs all agents. A CTO+CRO debate on pricing is perfectly valid
-- **Run async**: Agents don't need to wait for each other in Round 1. Spawn them in parallel
-- **Archive everything**: Brainstorm archives become your institutional memory
+- **Better topics = better debates.** "Should we go freemium?" beats "discuss pricing."
+- **Add context.** Include market data, competitor info, or constraints in the topic prompt.
+- **Parallel spawning.** Round 1 and Round 2 agents can run simultaneously — saves time.
+- **Cost control.** Use Sonnet for R1/R2, Opus only for synthesis if budget matters.
+- **Save transcripts.** Store results in `brainstorms/{topic}/round-1.md` etc. for reference.
