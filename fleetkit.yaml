@@ -1,0 +1,125 @@
+# ============================================================
+# FleetKit Configuration
+# ============================================================
+# Your AI executive fleet. Edit this to match your setup.
+# ============================================================
+
+fleet:
+  name: "My AI Fleet"
+  version: "1.0"
+  description: "Five AI executives providing multi-perspective strategic counsel"
+
+# ────────────────────────────────────────────────────────────
+# Agents
+# ────────────────────────────────────────────────────────────
+# Each agent has a directory with SOUL.md, MEMORY.md, TOOLS.md.
+# Customize the SOUL to change their personality and expertise.
+# ────────────────────────────────────────────────────────────
+
+agents:
+  ceo:
+    name: "Chief"
+    title: "Chief Executive Officer"
+    emoji: "👑"
+    directory: "agents/ceo"
+    model: "claude-sonnet-4"
+    temperature: 0.5
+    max_tokens: 4096
+    role_summary: "Vision, final decisions, strategic direction"
+    notes: "Only spawned for major decisions and vision-setting. Your human CEO handles most CEO duties."
+
+  coo:
+    name: "Atlas"
+    title: "Chief Operating Officer"
+    emoji: "📊"
+    directory: "agents/coo"
+    model: "claude-sonnet-4"
+    temperature: 0.4
+    max_tokens: 4096
+    role_summary: "Operations, documentation, coordination, standups, brainstorm synthesis"
+    notes: "The synthesizer. Runs standups, produces briefs, maintains the decision log."
+
+  cto:
+    name: "Forge"
+    title: "Chief Technology Officer"
+    emoji: "🔧"
+    directory: "agents/cto"
+    model: "claude-sonnet-4"
+    temperature: 0.3
+    max_tokens: 4096
+    role_summary: "Technical feasibility, architecture, optimization, first-principles thinking"
+    notes: "Low temperature for precise technical analysis. Increase for more creative technical brainstorming."
+
+  cro:
+    name: "Hunter"
+    title: "Chief Revenue Officer"
+    emoji: "💰"
+    directory: "agents/cro"
+    model: "claude-sonnet-4"
+    temperature: 0.6
+    max_tokens: 3072
+    role_summary: "Revenue strategy, pricing, pipeline, competitive intelligence, market timing"
+    notes: "Higher temperature for market intuition and creative deal-making."
+
+  cmo:
+    name: "Echo"
+    title: "Chief Marketing Officer"
+    emoji: "📢"
+    directory: "agents/cmo"
+    model: "claude-sonnet-4"
+    temperature: 0.7
+    max_tokens: 3072
+    role_summary: "Brand, positioning, content strategy, customer empathy, go-to-market"
+    notes: "Highest temperature for creative output. The provocateur of the fleet."
+
+# ────────────────────────────────────────────────────────────
+# Workflows
+# ────────────────────────────────────────────────────────────
+
+workflows:
+  brainstorm:
+    protocol: "workflows/brainstorm.md"
+    rounds: 3
+    participants: [cro, cto, cmo]
+    synthesis_agent: coo
+    output_dir: "brainstorms"
+    notes: "COO synthesizes but doesn't participate in debate rounds. CEO agent optional."
+
+  standup:
+    protocol: "workflows/standup.md"
+    schedule: "0 8 * * 1-5"
+    timezone: "America/New_York"
+    participants: [cro, cto, cmo]
+    synthesis_agent: coo
+    output_dir: "standups"
+    delivery: "telegram"
+    notes: "Change timezone and delivery channel to match your setup."
+
+  decision:
+    protocol: "workflows/decision.md"
+    log_dir: "docs/decisions"
+    notes: "Triggered when brainstorm synthesis surfaces unresolved disagreements."
+
+# ────────────────────────────────────────────────────────────
+# Budget (optional)
+# ────────────────────────────────────────────────────────────
+# Track and limit your fleet's API spend.
+# ────────────────────────────────────────────────────────────
+
+budget:
+  daily_alert_usd: 5.00
+  monthly_budget_usd: 100.00
+  estimates:
+    standup_cost_usd: 0.40
+    brainstorm_cost_usd: 1.00
+
+# ────────────────────────────────────────────────────────────
+# Customization Tips
+# ────────────────────────────────────────────────────────────
+#
+# 🔄 Swap models: Use claude-opus for COO synthesis, cheaper models for participants
+# 🎭 Add agents: Create a new directory in agents/ with SOUL.md, MEMORY.md, TOOLS.md
+# 📝 Edit SOULs: Change personality, expertise, and decision frameworks
+# ⏰ Change schedule: Adjust cron expressions in the cron/ directory
+# 📱 Change delivery: Swap "telegram" for "discord", "slack", etc.
+# 💰 Save money: Use claude-haiku for individual standup updates

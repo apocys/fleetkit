@@ -1,0 +1,32 @@
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+*.sublime-*
+
+# Environment
+.env
+.env.*
+
+# Brainstorm & standup outputs (user-generated, not tracked)
+brainstorms/
+standups/
+docs/decisions/
+docs/reports/
+
+# Node modules (if dashboard is extended)
+node_modules/
+
+# Logs
+*.log
+
+# Agent memory files are tracked as templates,
+# but user data should stay local
+# (MEMORY.md templates ARE tracked — user edits are their own)

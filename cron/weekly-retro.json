@@ -1,0 +1,14 @@
+{
+  "name": "weekly-retro",
+  "description": "Weekly retrospective — review the week's brainstorms, standups, and decisions",
+  "schedule": "0 17 * * 5",
+  "timezone": "America/New_York",
+  "model": "claude-sonnet-4",
+  "channel": "telegram",
+  "task": "Run a weekly retrospective. Read all standups from this week (standups/YYYY-MM-DD.md for Mon-Fri). Read any brainstorm syntheses created this week. Read any decisions logged this week. Spawn the COO to produce a 'Week in Review' report covering: (1) What the fleet accomplished, (2) Key decisions made, (3) Unresolved tensions, (4) Recommendations for next week. Save to docs/reports/retro-YYYY-WNN.md and deliver summary to Telegram.",
+  "notes": [
+    "Friday 5 PM default — adjust to your schedule",
+    "This is a good time for memory maintenance: update agent MEMORY.md files with the week's learnings",
+    "Consider spawning individual agents for their own retrospective before the COO synthesis"
+  ]
+}

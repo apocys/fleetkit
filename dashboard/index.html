@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FleetKit Dashboard</title>
+<style>
+/* ============================================================
+   FleetKit Dashboard — Minimal, Dark Theme
+   ============================================================ */
+:root {
+  --bg: #0a0a0a;
+  --bg-card: #16161a;
+  --bg-card-hover: #1c1c22;
+  --border: #2a2a30;
+  --text: #e8e8ed;
+  --text-secondary: #9898a0;
+  --text-muted: #5e5e68;
+  --accent-ceo: #f0c040;
+  --accent-coo: #4a9eff;
+  --accent-cro: #34d399;
+  --accent-cto: #f97316;
+  --accent-cmo: #a855f7;
+  --radius: 12px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.header h1 {
+  font-size: 24px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header h1 span { font-size: 28px; }
+
+.header .meta {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  transition: background 0.2s;
+}
+
+.card:hover { background: var(--bg-card-hover); }
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.card-header .emoji { font-size: 24px; }
+
+.card-header .title {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.card-header .role {
+  color: var(--text-secondary);
+  font-size: 13px;
+  margin-left: auto;
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  font-size: 14px;
+}
+
+.stat-row:last-child { border-bottom: none; }
+
+.stat-row .label { color: var(--text-secondary); }
+
+.stat-row .value { font-weight: 600; }
+
+/* Agent status indicator */
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.status-active { background: #34d399; }
+.status-idle { background: #eab308; }
+.status-offline { background: #6b7280; }
+
+/* Activity Feed */
+.feed {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
+.feed h2 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.feed-item {
+  display: flex;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  font-size: 14px;
+}
+
+.feed-item:last-child { border-bottom: none; }
+
+.feed-item .time {
+  color: var(--text-muted);
+  white-space: nowrap;
+  min-width: 60px;
+}
+
+.feed-item .agent {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.feed-item .content { color: var(--text-secondary); }
+
+/* Quick Stats */
+.quick-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.quick-stat {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  text-align: center;
+}
+
+.quick-stat .number {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.quick-stat .label {
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .quick-stats { grid-template-columns: repeat(2, 1fr); }
+  .grid { grid-template-columns: 1fr; }
+  body { padding: 16px; }
+}
+
+/* Color accents per agent */
+.agent-ceo { color: var(--accent-ceo); }
+.agent-coo { color: var(--accent-coo); }
+.agent-cro { color: var(--accent-cro); }
+.agent-cto { color: var(--accent-cto); }
+.agent-cmo { color: var(--accent-cmo); }
+</style>
+</head>
+<body>
+
+<div class="dashboard">
+
+  <!-- Header -->
+  <div class="header">
+    <h1><span>⚡</span> FleetKit Dashboard</h1>
+    <div class="meta" id="timestamp"></div>
+  </div>
+
+  <!-- Quick Stats -->
+  <div class="quick-stats">
+    <div class="quick-stat">
+      <div class="number">5</div>
+      <div class="label">Active Agents</div>
+    </div>
+    <div class="quick-stat">
+      <div class="number">3</div>
+      <div class="label">Brainstorms This Week</div>
+    </div>
+    <div class="quick-stat">
+      <div class="number">5</div>
+      <div class="label">Standups This Week</div>
+    </div>
+    <div class="quick-stat">
+      <div class="number">$4.20</div>
+      <div class="label">Week API Cost</div>
+    </div>
+  </div>
+
+  <!-- Agent Cards -->
+  <div class="grid">
+
+    <div class="card">
+      <div class="card-header">
+        <span class="emoji">👑</span>
+        <span class="title agent-ceo">Chief</span>
+        <span class="role">CEO</span>
+      </div>
+      <div class="stat-row">
+        <span class="label">Status</span>
+        <span class="value"><span class="status-dot status-idle"></span>On call</span>
+      </div>
+      <div class="stat-row">
+        <span class="label">Decisions pending</span>
+        <span class="value">2</span>
+      </div>
+      <div class="stat-row">
+        <span class="label">Last active</span>
+        <span class="value">Yesterday</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="emoji">📊</span>
+        <span class="title agent-coo">Atlas</span>
+        <span class="role">COO</span>
+      </div>
+      <div class="stat-row">
+        <span class="label">Status</span>
+        <span class="value"><span class="status-dot status-active"></span>Active</span>
+      </div>
+      <div class="stat-row">
+        <span class="label">Standups run</span>
+        <span class="value">5 this week</span>
+      </div>
+      <div class="stat-row">
+        <span class="label">Docs maintained</span>
+        <span class="value">23</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="emoji">💰</span>
+        <span class="title agent-cro">Hunter</span>
+        <span class="role">CRO</span>
+      </div>
+      <div class="stat-row">
+        <span class="label">Status</span>
+        <span class="value"><span class="status-dot status-active"></span>Active</span>
+      </div>
+      <div class="stat-row">
+        <span class="label">Pipeline</span>
+        <span class="value">$12.4K</span>
+      </div>
+      <div class="stat-row">
+        <span class="label">Deals closing</span>
+        <span class="value">3 this week</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="emoji">🔧</span>
+        <span class="title agent-cto">Forge</span>
+        <span class="role">CTO</span>
+      </div>
+      <div class="stat-row">
+        <span class="label">Status</span>
+        <span class="value"><span class="status-dot status-active"></span>Active</span>
+      </div>
+      <div class="stat-row">
+        <span class="label">Token cost saved</span>
+        <span class="value">35% this week</span>
+      </div>
+      <div class="stat-row">
+        <span class="label">Systems health</span>
+        <span class="value">✅ All green</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="emoji">📢</span>
+        <span class="title agent-cmo">Echo</span>
+        <span class="role">CMO</span>
+      </div>
+      <div class="stat-row">
+        <span class="label">Status</span>
+        <span class="value"><span class="status-dot status-active"></span>Active</span>
+      </div>
+      <div class="stat-row">
+        <span class="label">Content published</span>
+        <span class="value">8 pieces</span>
+      </div>
+      <div class="stat-row">
+        <span class="label">Community</span>
+        <span class="value">200 members</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Activity Feed -->
+  <div class="feed">
+    <h2>📡 Recent Activity</h2>
+
+    <div class="feed-item">
+      <span class="time">08:00</span>
+      <span class="agent agent-coo">📊 Atlas</span>
+      <span class="content">Ran morning standup — all agents reported, synthesis delivered to Telegram</span>
+    </div>
+
+    <div class="feed-item">
+      <span class="time">08:15</span>
+      <span class="agent agent-cro">💰 Hunter</span>
+      <span class="content">Updated pipeline: 3 new deals added, $4.2K expected this week</span>
+    </div>
+
+    <div class="feed-item">
+      <span class="time">09:30</span>
+      <span class="agent agent-cto">🔧 Forge</span>
+      <span class="content">Optimized standup prompts — 35% token reduction, same output quality</span>
+    </div>
+
+    <div class="feed-item">
+      <span class="time">10:00</span>
+      <span class="agent agent-cmo">📢 Echo</span>
+      <span class="content">Published launch narrative: "Your AI team, ready on day one"</span>
+    </div>
+
+    <div class="feed-item">
+      <span class="time">11:00</span>
+      <span class="agent agent-coo">📊 Atlas</span>
+      <span class="content">Brainstorm "Pricing Strategy" — Round 1 complete, Round 2 spawned</span>
+    </div>
+
+    <div class="feed-item">
+      <span class="time">14:00</span>
+      <span class="agent agent-coo">📊 Atlas</span>
+      <span class="content">Decision escalated to CEO: Product Hunt launch timing (urgent)</span>
+    </div>
+
+    <div class="feed-item">
+      <span class="time">15:30</span>
+      <span class="agent agent-cto">🔧 Forge</span>
+      <span class="content">Dashboard v2 deployed — real-time agent activity tracking live</span>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // Set timestamp
+  document.getElementById('timestamp').textContent = new Date().toLocaleDateString('en-US', {
+    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+  });
+</script>
+
+</body>
+</html>

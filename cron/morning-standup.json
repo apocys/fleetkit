@@ -1,0 +1,14 @@
+{
+  "name": "morning-standup",
+  "description": "Run the daily fleet standup — spawn agents, synthesize, deliver",
+  "schedule": "0 8 * * 1-5",
+  "timezone": "America/New_York",
+  "model": "claude-sonnet-4",
+  "channel": "telegram",
+  "task": "Run the daily standup protocol from workflows/standup.md. Spawn CRO, CTO, and CMO agents for individual updates (load each agent's SOUL.md and MEMORY.md). Then spawn COO to synthesize all updates into a unified report. Save the report to standups/YYYY-MM-DD.md. Deliver the summary to Telegram.",
+  "notes": [
+    "Adjust the schedule and timezone to match your working hours",
+    "Change 'channel' to 'discord' or 'slack' if you prefer",
+    "Consider using a cheaper model (e.g., claude-haiku) for individual agent updates and a stronger model for COO synthesis"
+  ]
+}
