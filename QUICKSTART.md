@@ -49,6 +49,16 @@ Your agent will:
 
 **Expected time:** 2-5 minutes depending on your model speed.
 
+### ✅ Success Signs
+
+You'll know it's working when you see:
+- **Different perspectives**: Hunter (CRO) wants speed, Forge (CTO) flags technical risks, Echo (CMO) focuses on brand perception
+- **Genuine disagreement**: Agents should challenge each other's positions, not just agree
+- **Executive synthesis**: Atlas (COO) provides a clear recommendation with consensus, tensions, and next steps
+- **Real insight**: You get perspectives you hadn't considered, not generic advice
+
+If all agents sound the same or just agree with each other, the SOUL.md files need more personality. Edit them to be more opinionated.
+
 ---
 
 ## Step 4: Run a Daily Standup (Optional)
@@ -107,6 +117,22 @@ If you use a flat-rate subscription (Claude Max, etc.) via a local proxy, the co
 
 ---
 
+## ✅ Quick Setup Verification
+
+Before your first brainstorm, verify everything is ready:
+
+```bash
+# Check that all required files exist
+cd ~/.openclaw/workspace/fleetkit/
+ls -la agents/ceo/SOUL.md agents/coo/SOUL.md agents/cro/SOUL.md agents/cto/SOUL.md agents/cmo/SOUL.md
+ls -la workflows/brainstorm.md workflows/standup.md workflows/decision.md
+ls -la fleetkit.yaml
+
+# If any files are missing, re-run the copy step
+```
+
+---
+
 ## Troubleshooting
 
 **"My agent doesn't know about FleetKit"**
@@ -120,3 +146,6 @@ If you use a flat-rate subscription (Claude Max, etc.) via a local proxy, the co
 
 **"I want more than 5 agents"**
 → Create new directories in `fleetkit/agents/`. Write a SOUL.md with a distinct personality and role. Reference them in your brainstorm prompts. There's no hard limit.
+
+**"All agents agree with each other"**
+→ Edit the SOUL.md files to be more opinionated and add more "What Annoys You" sections. Great debates come from productive friction, not consensus.

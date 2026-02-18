@@ -22,32 +22,36 @@
 
 ---
 
-<!-- Replace with actual screenshot/GIF of a brainstorm in action -->
 <p align="center">
-  <img src="https://via.placeholder.com/800x400/0a0a0a/e8e8ed?text=FleetKit+Dashboard+%E2%80%94+Your+AI+Executive+Team" alt="FleetKit Dashboard" width="800">
+  <strong>🎬 Demo Coming Soon</strong><br>
+  <em>Your AI executives debating pricing strategy — 4 perspectives, 1 synthesis, 5 minutes</em><br>
+  <sub>Until the demo is ready, check out the <a href="examples/brainstorm-example.md">real brainstorm example →</a></sub>
 </p>
 
 ---
 
-## Quick Start
+## Quick Start — 5 Minutes to Your First Executive Debate
 
 ```bash
 # 1. Clone FleetKit
-git clone https://github.com/your-org/fleetkit.git
+git clone https://github.com/apocys/fleetkit.git
 
 # 2. Copy to your OpenClaw workspace
 cp -r fleetkit/ ~/.openclaw/workspace/fleetkit/
 
-# 3. Run your first brainstorm
-# Tell your OpenClaw agent:
-# "Run a brainstorm using FleetKit. Topic: Should we go freemium or stay premium?"
+# 3. Tell your OpenClaw agent about FleetKit (via Telegram, Discord, etc.)
+# "I've added FleetKit to my workspace at fleetkit/. Read fleetkit/workflows/brainstorm.md 
+#  — this is how you run multi-agent brainstorms with my AI executive team."
+
+# 4. Run your first brainstorm
+# "Brainstorm using FleetKit: Should we price our product as freemium or premium-only?"
 ```
 
-**That's it.** No code. No Docker. No dependencies. Just files.
+**That's it.** No code. No Docker. No dependencies. Just files and conversation.
 
-Your AI executives will debate for 3 rounds and deliver a synthesis with consensus, tensions, and a recommendation — in under 5 minutes.
+In 2-5 minutes, your AI executives will debate, disagree, and deliver a synthesis with specific recommendations. Hunter (CRO) will push for revenue, Forge (CTO) will flag technical constraints, Echo (CMO) will focus on brand impact. Atlas (COO) will synthesize their debate into actionable strategy.
 
-👉 **[Full setup guide →](QUICKSTART.md)**
+👉 **[Complete 5-minute setup guide →](QUICKSTART.md)**
 
 ---
 
@@ -304,8 +308,7 @@ A: Yes. MIT license. Use it however you want.
 
 If FleetKit saves you from one bad decision, it's worth a ⭐
 
-<!-- Replace with actual star history chart -->
-<!-- [![Star History Chart](https://api.star-history.com/svg?repos=your-org/fleetkit&type=Date)](https://star-history.com/#your-org/fleetkit&Date) -->
+[![Star History Chart](https://api.star-history.com/svg?repos=apocys/fleetkit&type=Date)](https://star-history.com/#apocys/fleetkit&Date)
 
 ---
 
